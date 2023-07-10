@@ -1,4 +1,8 @@
 # FaviconHash
+[![Python 3](https://img.shields.io/badge/python-3-yellow.svg)](https://www.python.org/)
+<a href="https://twitter.com/brutexploiter"><img src="https://img.shields.io/twitter/follow/brutexploiter.svg?logo=twitter"></a>
+</p>
+
 
 ![image](https://github.com/brutexploiter/FaviconHash/assets/88744417/e97eeb6e-d67b-4029-a371-744f12cd21fc)
 
@@ -32,5 +36,3 @@ Please note that the "user-agents.txt" file is required in the same directory as
 
 Disclaimer: This tool should be used responsibly and in compliance with all applicable laws and regulations. It is essential to respect the terms of service and the privacy policies of websites when using this tool for any purpose.
 
-<a href="https://twitter.com/brutexploiter"><img src="https://img.shields.io/twitter/follow/brutexploiter.svg?logo=twitter"></a>
-</p>
