@@ -1,23 +1,4 @@
-
-
-
-$$$$$$$$\                 $$\                               $$\   $$\                     $$\       
-$$  _____|                \__|                              $$ |  $$ |                    $$ |      
-$$ |   $$$$$$\ $$\    $$\ $$\  $$$$$$$\  $$$$$$\  $$$$$$$\  $$ |  $$ | $$$$$$\   $$$$$$$\ $$$$$$$\  
-$$$$$\ \____$$\\$$\  $$  |$$ |$$  _____|$$  __$$\ $$  __$$\ $$$$$$$$ | \____$$\ $$  _____|$$  __$$\ 
-$$  __|$$$$$$$ |\$$\$$  / $$ |$$ /      $$ /  $$ |$$ |  $$ |$$  __$$ | $$$$$$$ |\$$$$$$\  $$ |  $$ |
-$$ |  $$  __$$ | \$$$  /  $$ |$$ |      $$ |  $$ |$$ |  $$ |$$ |  $$ |$$  __$$ | \____$$\ $$ |  $$ |
-$$ |  \$$$$$$$ |  \$  /   $$ |\$$$$$$$\ \$$$$$$  |$$ |  $$ |$$ |  $$ |\$$$$$$$ |$$$$$$$  |$$ |  $$ |
-\__|   \_______|   \_/    \__| \_______| \______/ \__|  \__|\__|  \__| \_______|\_______/ \__|  \__|
-                                                                                                    
-                                                                                                    
-                                                                                                    
-
-
-Author: Biraj Baishya
-Twitter: @brutexploiter
-Description: This tool calculates the FaviconHash value of a favicon to help hunt phishing websites on Shodan.
-
+# FaviconHash
 FaviconHash is a Python script that leverages the mmh3 library to calculate the hash value of a favicon image. The script can be used to identify unique hash values associated with phishing websites. By searching for these hash values on Shodan using the "http.favicon.hash:<hash>" query, potential phishing websites can be discovered.
 
 To use the FaviconHash tool, follow these steps:
