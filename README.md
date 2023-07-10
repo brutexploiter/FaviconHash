@@ -22,6 +22,9 @@ pip install -r requirements.txt
 python FaviconHash.py
 ```
 # Usage
+![image](https://github.com/brutexploiter/FaviconHash/assets/88744417/44dbc2f3-9c65-417c-b8dc-2eb15736da05)
+
+
 To use the FaviconHash tool, follow these steps:
 1. Run the script and provide the URL of the favicon image.
 2. Choose a user agent to be used in the HTTP request headers.
