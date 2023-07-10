@@ -1,6 +1,9 @@
 # FaviconHash
+
 FaviconHash is a Python script that leverages the mmh3 library to calculate the hash value of a favicon image. The script can be used to identify unique hash values associated with websites. By searching for these hash values on Shodan using the "http.favicon.hash:<hash>" query, websites can be discovered.
 
+<a href="https://twitter.com/brutexploiter"><img src="https://img.shields.io/twitter/follow/brutexploiter.svg?logo=twitter"></a>
+</p>
 ### What is MurMurHash?
 MurmurHash is a non-cryptographic hash function suitable for general hash-based lookup. The name comes from two basic operations, multiply (MU) and rotate (R), used in its inner loop. The current version is MurmurHash3 which yields a 32-bit or 128-bit hash value. When using 128-bits, the x86 and x64 versions do not produce the same values, as the algorithms are optimized for their respective platforms. MurmurHash3 was released alongside SMHasher—a hash function test suite.
 
