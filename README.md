@@ -1,10 +1,7 @@
 # FaviconHash
 [![Python 3](https://img.shields.io/badge/python-3-yellow.svg)](https://www.python.org/)
-<a href="https://twitter.com/brutexploiter"><img src="https://img.shields.io/twitter/follow/brutexploiter.svg?logo=twitter"></a>
-</p>
-
-
-![image](https://github.com/brutexploiter/FaviconHash/assets/88744417/e97eeb6e-d67b-4029-a371-744f12cd21fc)
+[![License](https://img.shields.io/github/license/brutexploiter/FaviconHash)](https://github.com/brutexploiter/FaviconHash/blob/main/LICENSE)
+[![Twitter](https://img.shields.io/twitter/follow/brutexploiter.svg?logo=twitter)](https://twitter.com/brutexploiter)
 
 FaviconHash is a Python script that leverages the mmh3 library to calculate the hash value of a favicon image. The script can be used to identify unique hash values associated with websites. By searching for these hash values on Shodan using the "http.favicon.hash:<hash>" query, websites can be discovered.
 
