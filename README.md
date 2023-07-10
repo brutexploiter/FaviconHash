@@ -36,3 +36,6 @@ Please note that the "user-agents.txt" file is required in the same directory as
 
 Disclaimer: This tool should be used responsibly and in compliance with all applicable laws and regulations. It is essential to respect the terms of service and the privacy policies of websites when using this tool for any purpose.
 
+## Credits
+- [Viral Maniar](https://github.com/Viralmaniar/MurMurHash)
+[![Twitter](https://img.shields.io/twitter/follow/maniarviral.svg?logo=twitter)](https://twitter.com/maniarviral)
