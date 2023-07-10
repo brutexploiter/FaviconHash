@@ -1,5 +1,5 @@
 # FaviconHash
-FaviconHash is a Python script that leverages the mmh3 library to calculate the hash value of a favicon image. The script can be used to identify unique hash values associated with phishing websites. By searching for these hash values on Shodan using the "http.favicon.hash:<hash>" query, potential phishing websites can be discovered.
+FaviconHash is a Python script that leverages the mmh3 library to calculate the hash value of a favicon image. The script can be used to identify unique hash values associated with websites. By searching for these hash values on Shodan using the "http.favicon.hash:<hash>" query, websites can be discovered.
 
 To use the FaviconHash tool, follow these steps:
 1. Run the script and provide the URL of the favicon image.
