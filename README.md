@@ -3,7 +3,7 @@
 [![License](https://img.shields.io/github/license/brutexploiter/FaviconHash)](https://github.com/brutexploiter/FaviconHash/blob/main/LICENSE)
 [![Twitter](https://img.shields.io/twitter/follow/brutexploiter.svg?logo=twitter)](https://twitter.com/brutexploiter)
 
-![image](https://github.com/brutexploiter/FaviconHash/assets/88744417/6ec6871e-0dcf-45eb-b49b-1930e5171fa1)
+![image](https://github.com/brutexploiter/FaviconHash/assets/88744417/ffc72f01-6eb0-4d51-a749-4a6f6a0fcb7c)
 
 
 
