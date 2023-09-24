@@ -2,6 +2,8 @@
 [![Python 3](https://img.shields.io/badge/python-3-yellow.svg)](https://www.python.org/)
 [![License](https://img.shields.io/github/license/brutexploiter/FaviconHash)](https://github.com/brutexploiter/FaviconHash/blob/main/LICENSE)
 [![Twitter](https://img.shields.io/twitter/follow/brutexploiter.svg?logo=twitter)](https://twitter.com/brutexploiter)
+[![Twitter](https://img.shields.io/twitter/follow/maniarviral.svg?logo=twitter)](https://twitter.com/maniarviral)
+
 
 ![image](https://github.com/brutexploiter/FaviconHash/assets/88744417/ffc72f01-6eb0-4d51-a749-4a6f6a0fcb7c)
 
