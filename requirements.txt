@@ -1,2 +1,4 @@
 mmh3
 requests
+termcolor
+shodan
