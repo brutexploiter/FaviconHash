@@ -7,20 +7,6 @@ import sys
 from termcolor import colored
 import shodan
 
-def print_banner():
-    """Prints the banner."""
-    banner = colored('''
-$$$$$$$$\                 $$\                               $$\   $$\                     $$\       
-$$  _____|                \__|                              $$ |  $$ |                    $$ |      
-$$ |   $$$$$$\ $$\    $$\ $$\  $$$$$$$\  $$$$$$\  $$$$$$$\  $$ |  $$ | $$$$$$\   $$$$$$$\ $$$$$$$\  
-$$$$$\ \____$$\\$$\  $$  |$$ |$$  _____|$$  __$$\ $$  __$$\ $$$$$$$$ | \____$$\ $$  _____|$$  __$$\ 
-$$  __|$$$$$$$ |\$$\$$  / $$ |$$ /      $$ /  $$ |$$ |  $$ |$$  __$$ | $$$$$$$ |\$$$$$$\  $$ |  $$ |
-$$ |  $$  __$$ | \$$$  /  $$ |$$ |      $$ |  $$ |$$ |  $$ |$$ |  $$ |$$  __$$ | \____$$\ $$ |  $$ |
-$$ |  \$$$$$$$ |  \$  /   $$ |\$$$$$$$\ \$$$$$$  |$$ |  $$ |$$ |  $$ |\$$$$$$$ |$$$$$$$  |$$ |  $$ |
-\__|   \_______|   \_/    \__| \_______| \______/ \__|  \__|\__|  \__| \_______|\_______/ \__|  \__|
-''', 'red')
-    print(banner)
-
 def get_random_user_agent():
     """Returns a random user agent from user-agents.txt."""
     with open('user-agents.txt', 'r') as file:
@@ -58,7 +44,6 @@ def main():
     args = parser.parse_args()
 
     if args.help:
-        print_banner()
         print('''Usage: favicon.py -u <URL> -a <SHODAN_API_KEY>
 
 FaviconHash - Calculate and search favicon hash on Shodan.
@@ -80,8 +65,6 @@ Options:
     if not args.url or not args.api_key:
         parser.print_help()
         sys.exit(1)
-
-    print_banner()
 
     if args.random_agent:
         user_agent = get_random_user_agent()
