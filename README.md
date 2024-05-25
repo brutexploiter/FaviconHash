@@ -43,14 +43,36 @@ Options:
 Example:
 
 ```
-python favicon.py -u https://example.com/favicon.ico -a YOUR_SHODAN_API_KEY -r
+ python favicon.py -u https://snyk.io/favicon.ico -a <api_key>
+```
+```
+$$$$$$$$\                 $$\                               $$\   $$\                     $$\
+$$  _____|                \__|                              $$ |  $$ |                    $$ |
+$$ |   $$$$$$\ $$\    $$\ $$\  $$$$$$$\  $$$$$$\  $$$$$$$\  $$ |  $$ | $$$$$$\   $$$$$$$\ $$$$$$$\
+$$$$$\ \____$$\$$\  $$  |$$ |$$  _____|$$  __$$\ $$  __$$\ $$$$$$$$ | \____$$\ $$  _____|$$  __$$\
+$$  __|$$$$$$$ |\$$\$$  / $$ |$$ /      $$ /  $$ |$$ |  $$ |$$  __$$ | $$$$$$$ |\$$$$$$\  $$ |  $$ |
+$$ |  $$  __$$ | \$$$  /  $$ |$$ |      $$ |  $$ |$$ |  $$ |$$ |  $$ |$$  __$$ | \____$$\ $$ |  $$ |
+$$ |  \$$$$$$$ |  \$  /   $$ |\$$$$$$$\ \$$$$$$  |$$ |  $$ |$$ |  $$ |\$$$$$$$ |$$$$$$$  |$$ |  $$ |
+\__|   \_______|   \_/    \__| \_______| \______/ \__|  \__|\__|  \__| \_______|\_______/ \__|  \__|
+
+
+----------
+-1136181786
+----------
+
+Tip: Use http.favicon.hash:-1136181786 on Shodan. Click the link below:
+https://www.shodan.io/search?query=http.favicon.hash%3A-1136181786
+
+Shodan search results for hash -1136181786:
+
+IP: 34.120.138.254, Port: 443, Hostnames: ['254.138.120.34.bc.googleusercontent.com', 'learn-web.dev.snyk-internal.net']
+IP: 34.149.197.179, Port: 443, Hostnames: ['179.197.149.34.bc.googleusercontent.com', 'learn-web.snyk-internal.net']
 ```
 Please note that the "user-agents.txt" file is required in the same directory as the script to generate random user agents. Make sure to update the "user-agents.txt" file with a list of valid user agents.
 
 Disclaimer: This tool should be used responsibly and in compliance with all applicable laws and regulations. It is essential to respect the terms of service and the privacy policies of websites when using this tool for any purpose.
 
 ## Planned Features
-- Shodan Integration (Coming Soon)
 
 ## Credits
 - [Viral Maniar](https://github.com/Viralmaniar/MurMurHash)
