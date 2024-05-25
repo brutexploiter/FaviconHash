@@ -1,16 +1,14 @@
+import argparse
 import mmh3
 import requests
 import codecs
-import os
-import sys
 import random
+import sys
 from termcolor import colored
 import shodan
 
-# Add your Shodan API key here
-SHODAN_API_KEY = 'YOUR_SHODAN_API_KEY'
-
-def logo():
+def print_banner():
+    """Prints the banner."""
     banner = colored('''
 $$$$$$$$\                 $$\                               $$\   $$\                     $$\       
 $$  _____|                \__|                              $$ |  $$ |                    $$ |      
@@ -21,62 +19,26 @@ $$ |  $$  __$$ | \$$$  /  $$ |$$ |      $$ |  $$ |$$ |  $$ |$$ |  $$ |$$  __$$ |
 $$ |  \$$$$$$$ |  \$  /   $$ |\$$$$$$$\ \$$$$$$  |$$ |  $$ |$$ |  $$ |\$$$$$$$ |$$$$$$$  |$$ |  $$ |
 \__|   \_______|   \_/    \__| \_______| \______/ \__|  \__|\__|  \__| \_______|\_______/ \__|  \__|
 ''', 'red')
-    return banner
+    print(banner)
 
 def get_random_user_agent():
-    user_agent_list = []
+    """Returns a random user agent from user-agents.txt."""
     with open('user-agents.txt', 'r') as file:
         user_agent_list = file.readlines()
-    user_agent = random.choice(user_agent_list).strip()
-    return user_agent
+    return random.choice(user_agent_list).strip()
 
-def cmd_HashGenerator():
-    URL = input(colored('\nEnter Favicon URL to generate Hash: ', 'yellow'))
-    user_agent_choice = input(colored('\nChoose User Agent:\n1. Enter a custom User Agent\n2. Random User Agent\n> ', 'yellow'))
-
-    if user_agent_choice == '1':
-        user_agent = input(colored('\nEnter User Agent: ', 'yellow'))
-    elif user_agent_choice == '2':
-        user_agent = get_random_user_agent()
-    else:
-        print(colored('Invalid choice. Exiting.', 'red'))
-        sys.exit(1)
-
-    headers = {'User-Agent': user_agent}
-    response = requests.get(URL, headers=headers)
+def fetch_favicon_hash(url, user_agent=None):
+    """Fetches the favicon, calculates its hash, and returns the hash."""
+    headers = {}
+    if user_agent:
+        headers['User-Agent'] = user_agent
+    response = requests.get(url, headers=headers)
     favicon = codecs.encode(response.content, "base64")
-    print('\n')
-    hash_value = mmh3.hash(favicon)
-    print('----------')
-    print(hash_value)
-    print('----------')
-    print('\n')
-    
-    shodan_link = colored(f'https://www.shodan.io/search?query=http.favicon.hash%3A{hash_value}', 'blue', attrs=['underline'])
-    print(f'Tip: Use http.favicon.hash:{hash_value} on Shodan. Click the link below:')
-    print(shodan_link)
-    
-    search_shodan(hash_value)
-    
-    while True:
-        try:
-            choice = str(input(colored('\n[?] Do you want to continue? y/n\n> ', 'yellow'))).lower()
-            if choice[0] == 'y':
-                return cmd_HashGenerator()
-            if choice[0] == 'n':
-                sys.exit(0)
-                break
-            else:
-                print(colored('Invalid Input', 'red'))
-        except KeyboardInterrupt:
-            print(colored('[!] Ctrl + C detected\n[!] Exiting', 'red'))
-            sys.exit(0)
-        except EOFError:
-            print(colored('[!] Ctrl + D detected\n[!] Exiting', 'red'))
-            sys.exit(0)
+    return mmh3.hash(favicon)
 
-def search_shodan(hash_value):
-    api = shodan.Shodan(SHODAN_API_KEY)
+def search_shodan(hash_value, shodan_api_key):
+    """Searches Shodan for the given hash value and prints the results."""
+    api = shodan.Shodan(shodan_api_key)
     query = f"http.favicon.hash:{hash_value}"
     try:
         results = api.search(query)
@@ -87,8 +49,57 @@ def search_shodan(hash_value):
         print(colored(f'Error: {e}', 'red'))
 
 def main():
-    print(logo())
-    cmd_HashGenerator()
+    parser = argparse.ArgumentParser(prog='favicon.py', description='FaviconHash - Calculate and search favicon hash on Shodan.', add_help=False)
+    parser.add_argument('-u', '--url', metavar='<URL>', type=str, help='URL of the favicon')
+    parser.add_argument('-a', '--api-key', metavar='<SHODAN_API_KEY>', type=str, help='Specify Shodan API key')
+    parser.add_argument('-r', '--random-agent', action='store_true', help='Use a random user agent')
+    parser.add_argument('-c', '--custom-agent', metavar='<CUSTOM_AGENT>', type=str, help='Specify a custom user agent')
+    parser.add_argument('-h', '--help', action='store_true', help='Show this help message and exit')
+    args = parser.parse_args()
+
+    if args.help:
+        print_banner()
+        print('''Usage: favicon.py -u <URL> -a <SHODAN_API_KEY>
+
+FaviconHash - Calculate and search favicon hash on Shodan.
+
+Commands:
+  -u, --url    URL of the favicon
+  -a, --api-key  Specify Shodan API key
+
+Options:
+  -h, --help            Show this help message and exit
+  -r, --random-agent    Use a random user agent
+  -c, --custom-agent    Specify a custom user agent''')
+        sys.exit(0)
+
+    if not any(vars(args).values()):
+        print("No command supplied. Use -h/--help to know more.")
+        sys.exit(1)
+
+    if not args.url or not args.api_key:
+        parser.print_help()
+        sys.exit(1)
+
+    print_banner()
+
+    if args.random_agent:
+        user_agent = get_random_user_agent()
+    elif args.custom_agent:
+        user_agent = args.custom_agent
+    else:
+        user_agent = None
+
+    hash_value = fetch_favicon_hash(args.url, user_agent)
+    print('\n----------')
+    print(hash_value)
+    print('----------\n')
+
+    shodan_link = colored(f'https://www.shodan.io/search?query=http.favicon.hash%3A{hash_value}', 'blue', attrs=['underline'])
+    print(f'Tip: Use http.favicon.hash:{hash_value} on Shodan. Click the link below:')
+    print(shodan_link)
+
+    search_shodan(hash_value, args.api_key)
 
 if __name__ == "__main__":
     main()
