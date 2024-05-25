@@ -5,6 +5,10 @@ import os
 import sys
 import random
 from termcolor import colored
+import shodan
+
+# Add your Shodan API key here
+SHODAN_API_KEY = 'YOUR_SHODAN_API_KEY'
 
 def logo():
     banner = colored('''
@@ -47,10 +51,13 @@ def cmd_HashGenerator():
     print(hash_value)
     print('----------')
     print('\n')
+    
     shodan_link = colored(f'https://www.shodan.io/search?query=http.favicon.hash%3A{hash_value}', 'blue', attrs=['underline'])
     print(f'Tip: Use http.favicon.hash:{hash_value} on Shodan. Click the link below:')
     print(shodan_link)
-
+    
+    search_shodan(hash_value)
+    
     while True:
         try:
             choice = str(input(colored('\n[?] Do you want to continue? y/n\n> ', 'yellow'))).lower()
@@ -67,6 +74,17 @@ def cmd_HashGenerator():
         except EOFError:
             print(colored('[!] Ctrl + D detected\n[!] Exiting', 'red'))
             sys.exit(0)
+
+def search_shodan(hash_value):
+    api = shodan.Shodan(SHODAN_API_KEY)
+    query = f"http.favicon.hash:{hash_value}"
+    try:
+        results = api.search(query)
+        print(colored(f'\nShodan search results for hash {hash_value}:\n', 'green'))
+        for result in results['matches']:
+            print(colored(f"IP: {result['ip_str']}, Port: {result['port']}, Hostnames: {result['hostnames']}", 'green'))
+    except shodan.APIError as e:
+        print(colored(f'Error: {e}', 'red'))
 
 def main():
     print(logo())
