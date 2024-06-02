@@ -64,6 +64,9 @@ Disclaimer: This tool should be used responsibly and in compliance with all appl
 
 ## Planned Features
 
+- Fofa Integration
+- Zoomeye Integration
+
 ## Credits
 - [Viral Maniar](https://github.com/Viralmaniar/MurMurHash)
 [![X](https://img.shields.io/twitter/follow/maniarviral)](https://twitter.com/maniarviral)
