@@ -66,4 +66,4 @@ Disclaimer: This tool should be used responsibly and in compliance with all appl
 
 ## Credits
 - [Viral Maniar](https://github.com/Viralmaniar/MurMurHash)
-[![Twitter](https://img.shields.io/twitter/follow/maniarviral.svg?logo=twitter)](https://twitter.com/maniarviral)
+[![X](https://img.shields.io/twitter/follow/maniarviral)](https://twitter.com/maniarviral)
